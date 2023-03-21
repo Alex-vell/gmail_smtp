@@ -28,6 +28,10 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+app.get("/", function (req, res) {
+    res.send('Server started');
+})
+
 app.post("/sendMessage", async function (req, res) {
     let {email, name, message} = req.body;
 
