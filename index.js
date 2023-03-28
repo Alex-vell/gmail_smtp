@@ -9,12 +9,15 @@ const smtp_user = process.env.SMTP_USER || "";
 const smtp_pass = process.env.SMTP_PASSWORD || "";
 const recipient_email = process.env.RECIPIENT_EMAIL || "";
 const subject_email = process.env.SUBJECT || "";
+// const client_url = process.env.CLIENT_URL || "";
+
+console.log()
 
 const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: process.env.CLIENT_URL
+    origin: process.env.CLIENT_URL || "http://localhost:3000"
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
